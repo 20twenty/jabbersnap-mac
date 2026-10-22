@@ -1,76 +1,78 @@
 # Jabbersnap privacy policy
 
-Effective August 26, 2026. This policy covers the Jabbersnap Mac app and the
-Jabbersnap remote.
+Effective October 22, 2026. This policy covers the Jabbersnap Mac and
+Windows apps and the Jabbersnap remote. Historical Windows Lite releases
+have a separate policy in that repository's history.
 
 ## The short version
 
-What you record, capture, and write stays on your Mac. It goes only to the AI
-services you connect with your own accounts, and to the apps you deliver
-prompts to. If you leave anonymous usage statistics on, the app reports which
-features and settings get used, under a random ID. It never reports what you
-say, type, or copy, and no IP address or location is stored.
+Recordings, transcripts, captures and drafts are stored on your computer.
+Content goes to the apps where you paste it and to the AI providers you
+configure, under your own API keys. Optional usage statistics report how
+features are used without reporting your recorded or written content.
 
-The app contacts the internet for exactly three things: the AI services you
-configured, anonymous usage statistics (if on), and a one-time download of the
-On this Mac transcription model. There is nothing else.
+## Recordings, captures and AI services
 
-## Your recordings and prompts
+- **Cloud transcription:** choosing Whisper on Groq sends recording audio
+  directly to Groq under your key. This is the transcription path on Windows
+  and Intel Macs.
+- **Local transcription:** on supported Apple silicon Macs, Parakeet runs
+  locally after its model download. Local transcription sends no audio to
+  a transcription provider.
+- **Transforms and spoken draft edits:** relevant text, spoken-change
+  transcripts, captures and destination-window images go to the configured
+  provider, Anthropic, Google Gemini or OpenAI, as the feature requires.
+  Window images can contain other content visible in the destination app.
+- **Pause summaries:** when enabled and configured, a recording's
+  transcribed words go to the selected AI provider to summarize it.
+- **Delivery:** copied or pasted output goes to the destination app or site.
 
-Audio recordings, transcripts, screenshots, copied text, and prompts are
-stored on your Mac. They leave it in only two ways:
+Jabbersnap does not route this content through a server operated by its
+makers. The providers handle requests under your accounts and their own
+terms and privacy policies: [Groq](https://groq.com/privacy-policy/),
+[Anthropic](https://www.anthropic.com/legal/privacy),
+[Google](https://policies.google.com/privacy), and
+[OpenAI](https://openai.com/policies/privacy-policy/).
 
-- When you deliver a prompt, its content goes to the app or site you sent it
-  to.
-- When a feature uses an AI service you configured, the content that feature
-  needs goes directly from your Mac to that service under your own API key.
-  Transcribing with a Whisper (Groq) model sends the recording's audio to
-  Groq. Voice Commands in Natural language mode sends the transcribed command
-  text to Google Gemini. Transcribing with the On this Mac model happens
-  entirely on your Mac and sends nothing.
+API keys are stored in macOS Keychain or Windows Credential Manager and
+sent to their corresponding services. The app also contacts GitHub when
+you check for updates, and downloads the local transcription model on
+supported Macs. Remote firmware is bundled with the app.
 
-Jabbersnap has no server of its own in any of these paths. We never receive
-your recordings, transcripts, screenshots, clipboard contents, or prompts.
-Your API keys are stored on your Mac and are sent only to the service each
-key belongs to.
+## Data on your computer
+
+History can contain audio, transcripts, screenshots, copied material,
+drafts and spoken changes. It is governed by the app's retention and
+storage settings. Settings and local diagnostic logs are also kept on the
+computer. Mac data lives under `~/Library/Application Support/Jabbersnap`;
+Windows data lives under `%LOCALAPPDATA%\Jabbersnap`.
+
+Uninstalling the app leaves its data and keys. **Delete Data** under
+**System › General** lets you select what to remove. Windows and macOS can
+retain their Bluetooth pairing independently of the app's stored remote.
 
 ## Anonymous usage statistics
 
-With "Share anonymous usage statistics" on (Jabbersnap settings, General),
-the app reports how it is used so we can improve it:
+With **Share anonymous usage statistics** enabled under **System › General**,
+the app sends events to PostHog in the United States under a random install
+ID. Events include app and operating-system versions, feature use, setting
+choices, recording durations and counts, destination apps or sites, and
+whether operations succeeded.
 
-- A random install ID, created on first launch. It is not connected to your
-  name, email, or any account. "Start over" in General creates a new one.
-- Feature usage: a recording finished (which transcription model, the
-  transcript's length in characters, how many captures it carried), a prompt
-  was delivered (to which app or site, by which method, and whether it
-  worked), a voice command ran (which built-in actions, the outcome, the
-  recording's length in seconds), the remote connected, remote button
-  assignments changed (which kinds of actions are assigned), and the live
-  transcription preview was hidden during a recording.
-- A daily snapshot of the app's settings and remote button assignments, plus
-  the app version and macOS version.
+Events do not contain recordings, transcript text, prompt or clipboard
+contents, screenshots, API keys, or user-entered names. The app does not
+use session replay or screen recording for analytics.
 
-It never includes audio, speech, transcript text, prompt or clipboard
-contents, screenshots, API keys, or any name you typed in the app, such as a
-Shortcut's name.
+Turn the switch off to stop usage reporting. The app sends one final
+opt-out event. **Delete Data** lets you remove local usage information and
+settings.
 
-These events are collected with PostHog (PostHog, Inc., hosted in the United
-States). The project is configured to discard the sending IP address at
-ingestion and to derive nothing from it, so stored events carry no IP address
-and no location.
+## Support
 
-To turn it off, open Jabbersnap's settings, choose General, and turn off
-"Share anonymous usage statistics". Turning it off sends one final event
-recording the opt out, and after that nothing leaves your Mac.
+Logs, screenshots and other files are shared with the makers only when you
+choose to provide them. Review them before posting: GitHub issues are
+public. Never attach API keys or content you want to keep private.
 
-## Questions
-
-Open an [issue](../../issues) in this repository, or use
-[private vulnerability reporting](../../security/advisories/new) for anything
-security sensitive.
-
-## Changes
-
-This policy is updated in place. This repository's history shows every
-previous version.
+Questions: [Mac issues](https://github.com/20twenty/jabbersnap-mac/issues)
+or [Windows issues](https://github.com/20twenty/jabbersnap-windows/issues).
+This policy is updated in place; repository history preserves prior text.
