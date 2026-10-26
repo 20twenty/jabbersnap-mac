@@ -10,7 +10,7 @@ Use a Jabbersnap remote or your Mac's microphone and keyboard.
 
 ## Install or update
 
-1. Download **Jabbersnap-0.8.16.dmg** from the latest release.
+1. Download **Jabbersnap-0.8.17.dmg** from the latest release.
 2. Drag **Jabbersnap** to Applications, replacing the existing app if asked.
 3. Open it from Applications and follow setup. Follow its instructions for
    permissions and pairing, and wait for any remote software update to finish.
